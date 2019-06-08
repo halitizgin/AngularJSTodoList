@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="TodoList">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body ng-controller="TodoListController">
     <div class="container">
         <div class="row">
             <div class="col-md-2">
@@ -27,22 +27,18 @@
         </div>
         <div class="row list">
             <div class="col-md-12">
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-danger">
+                <ul class="list-group" ng-repeat="yapilacak in yapilacaklar">
+                    <li class="list-group-item list-group-item-{{yapilacak.okay ? 'danger' : 'success'}}">
                         <span>
-                            Yapılacak 1
+                            {{yapilacak.name}}
                         </span>
-                        <input class="float-right check" type="checkbox" />
-                    </li>
-                    <li class="list-group-item list-group-item-success">
-                        <span>
-                            Yapılacak 2
-                        </span>
-                        <input class="float-right check" type="checkbox" />                        
+                        <input class="float-right check" type="checkbox" ng-checked="yapilacak.okay" />
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+    <script src="js/angular.min.js"></script>
+    <script src="js/custom.js"></script>
 </body>
 </html>
