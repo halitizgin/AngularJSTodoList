@@ -15,19 +15,19 @@
                 <button class="btn btn-primary" ng-click="addClick()">Ekle</button>
             </div>
             <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Yapılacak iş adıyla arayın..." />
+                <input type="text" ng-model="todo" class="form-control" placeholder="Yapılacak iş adıyla arayın..." />
             </div>
             <div class="col-md-5">
-                <select class="form-control">
-                    <option value="all">Tümü</option>
-                    <option value="no">Yapılmamış</option>
-                    <option value="yes">Yapılmış</option>
+                <select class="form-control" ng-model="okay">
+                    <option value="">Tümü</option>
+                    <option value="false">Yapılmamış</option>
+                    <option value="true">Yapılmış</option>
                 </select>
             </div>
         </div>
         <div class="row list">
             <div class="col-md-12">
-                <ul class="list-group" ng-repeat="yapilacak in yapilacaklar">
+                <ul class="list-group" ng-repeat="yapilacak in yapilacaklar | filter: todo | filter: okay">
                     <li class="list-group-item list-group-item-{{yapilacak.okay ? 'danger' : 'success'}}">
                         <span>
                             {{yapilacak.name}}

@@ -1,5 +1,8 @@
 var app = angular.module("TodoList", []);
 app.controller('TodoListController', $scope => {
+    $scope.todo = '';
+    $scope.okay = '';
+
     $scope.yapilacaklar = [
         { id: 1, name: 'Toplantı', okay: false },
         { id: 2, name: 'İş', okay: true }
