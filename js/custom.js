@@ -10,7 +10,19 @@ app.controller('TodoListController', $scope => {
         if (index !== -1){
             const okay = $scope.yapilacaklar[index].okay;
             $scope.yapilacaklar[index].okay = !okay;
-            console.log($scope.yapilacaklar);
+        }
+    }
+
+    $scope.addClick = () => {
+        const data = prompt("Eklenecek işi yazın: ");
+        if (data){
+            const id = $scope.yapilacaklar[$scope.yapilacaklar.length - 1].id;
+            const object = {
+                id: id + 1,
+                name: data,
+                okay: false
+            }
+            $scope.yapilacaklar.push(object);
         }
     }
 });
